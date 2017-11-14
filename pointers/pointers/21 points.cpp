@@ -46,62 +46,62 @@ void printCard(int id)
     switch (typ)
     {
         case 0:
-            suit = 'H';
+            suit = "H";
             break;
         case 1:
-            suit = 'D';
+            suit = "D";
             break;
         case 2:
-            suit = 'C';
+            suit = "C";
             break;
         case 3:
-            suit = 'S';
+            suit = "S";
             break;
     }
     typ = id % 13;
     switch (typ)
     {
         case 0:
-            type = 'A';
+            type = "A";
             break;
         case 1:
-            type = '2';
+            type = "2";
             break;
         case 2:
-            type = '3';
+            type = "3";
             break;
         case 3:
-            type = '4';
+            type = "4";
             break;
         case 4:
-            type = '5';
+            type = "5";
             break;
         case 5:
-            type = '6';
+            type = "6";
             break;
         case 6:
-            type = '7';
+            type = "7";
             break;
         case 7:
-            type = '8';
+            type = "8";
             break;
         case 8:
-            type = '9';
+            type = "9";
             break;
         case 9:
-            type = '10';
+            type = "10";
             break;
         case 10:
-            type = 'J';
+            type = "J";
             break;
         case 11:
-            type = 'Q';
+            type = "Q";
             break;
         case 12:
-            type = 'K';
+            type = "K";
             break;
     }
-    string types = suit + '-' + to_string(typ);
+    string types = suit + "-" + type;
     cout << types;
     
 }
@@ -193,7 +193,28 @@ int getBestScore(int hand[], int numCards)
     
     return 0;
 }
-
+void compare(int phand[],int dhand[],int playerind,int dealind)
+{
+    int pvalue = getBestScore(phand, playerind), dvalue = getBestScore(dhand, dealind);
+    if (pvalue > dvalue)
+    {
+        printHand(phand, playerind);
+        printHand(dhand, dealind);
+        cout << "win: " << pvalue << " " << dvalue << endl;
+    }
+    if (pvalue == dvalue)
+    {
+        printHand(phand, playerind);
+        printHand(dhand, dealind);
+        cout << "tie " << pvalue << " " << dvalue << endl;
+    }
+    if (pvalue < dvalue)
+    {
+        printHand(phand, playerind);
+        printHand(dhand, dealind);
+        cout << "lose: " << pvalue << " " << dvalue << endl;
+    }
+}
 /**
  * Main program logic for the game of 21
  */
@@ -208,83 +229,132 @@ int main(int argc, char* argv[])
     }
     int seed = atoi(argv[1]);
     srand(seed);
-    
-    
-    //starting here: redo
-    
-    
-    int cards[52];
-    int dhand[9] = {0};
-    int phand[9] = {0};
-    int cardind = 0, dealind = 0, playerind = 0;
     char command;
-    // refill cards[]
-    for (int i = 0; i <=51; i++)
+    
+    do
     {
-        cards[i] = i;
-    }
-    // initialize
-    for (int i = 1; i <= 8; i++)
-    {
-        dhand[i] = -1;
-    }
-    for (int i = 1; i <= 8; i++)
-    {
-        phand[i] = -1;
-    }
-    shuffle(cards);
-    dhand[dealind] = cards[cardind];
-    cardind ++;
-    dealind ++;
-    phand[playerind] = cards[cardind];
-    cardind ++;
-    playerind ++;
-    dhand[dealind] = cards[cardind];
-    cardind ++;
-    dealind ++;
-    phand[playerind] = cards[cardind];
-    cardind ++;
-    playerind ++;
-    //show the cards in the first place
-    cout << "dealer: ? ";
-    printCard(dhand[dealind]);
-    cout << endl;
-    cout << "player: ";
-    printHand(phand, playerind);
-    // if player has 21;
-    while ((getBestScore(phand, playerind) <= 21) && (getBestScore(dhand, dealind) <= 21))
-    {
-        cout << " Type 'h' to hit and 's' to stay: " << endl;
-        cin >> command;
-        if (command == 'h')
+        int cards[52];
+        int dhand[9] = {0};
+        int phand[9] = {0};
+        int cardind = 0, dealind = 0, playerind = 0;
+        // refill cards[]
+        for (int i = 0; i <=51; i++)
         {
-            phand[playerind] = cards[cardind];
-            cardind ++;
-            playerind ++;
-            if (getBestScore(phand, playerind) > 21)
+            cards[i] = i;
+        }
+        // initialize
+        for (int i = 1; i <= 8; i++)
+        {
+            dhand[i] = -1;
+        }
+        for (int i = 1; i <= 8; i++)
+        {
+            phand[i] = -1;
+        }
+        shuffle(cards);
+        dhand[dealind] = cards[cardind];
+        cardind ++;
+        dealind ++;
+        phand[playerind] = cards[cardind];
+        cardind ++;
+        playerind ++;
+        dhand[dealind] = cards[cardind];
+        cardind ++;
+        dealind ++;
+        phand[playerind] = cards[cardind];
+        cardind ++;
+        playerind ++;
+        //show the cards in the first place
+        cout << "dealer: ? ";
+        printCard(dhand[dealind-1]);
+        cout << endl;
+        cout << "player: ";
+        printHand(phand, playerind);
+        // if player has 21;
+        while ((getBestScore(phand, playerind) <= 21) && (getBestScore(dhand, dealind) <= 21))
+        {
+            cout << " Type 'h' to hit and 's' to stay: " << endl;
+            cin >> command;
+            // if player hit
+            if (command == 'h')
             {
-                cout << "player: ";
-                printHand(phand, playerind);
-                cout << "Busted!" << endl;
-                cout << "lose: " << getBestScore(phand, playerind) << getBestScore(phand, playerind);
-                break;
+                phand[playerind] = cards[cardind];
+                cardind ++;
+                playerind ++;
+                if (getBestScore(phand, playerind) > 21)
+                {
+                    cout << "player: ";
+                    printHand(phand, playerind);
+                    cout << "Player Busted!" << endl;
+                    cout << "lose: " << getBestScore(phand, playerind)<< " " << getBestScore(dhand, dealind) << endl;
+                    break;
+                }
+                else if (getBestScore(phand, playerind) == 21)
+                {
+                    while (getBestScore(dhand, dealind) <= 17)
+                    {
+                        dhand[dealind] = cards[cardind];
+                        cardind ++;
+                        dealind ++;
+                    }
+                    if (getBestScore(dhand, dealind) <= 21)
+                    {
+                        printHand(phand, playerind);
+                        compare(phand,dhand,playerind,dealind);
+                        break;
+                    }
+                    else
+                    {
+                        cout << "dealer: ";
+                        printHand(dhand, dealind);
+                        cout << "Dealer Busted" << endl;
+                        cout << "win: " << getBestScore(phand, playerind) << " " << getBestScore(dhand, dealind) << endl;
+                        break;
+                    }
+                }
+                else
+                {
+                    dhand[dealind] = cards[cardind];
+                    cardind ++;
+                    dealind ++;
+                    if (getBestScore(dhand, dealind) > 21)
+                    {
+                        cout << "dealer: ";
+                        printHand(dhand, dealind);
+                        cout << "Dealer Busted" << endl;
+                        cout << "win: " << getBestScore(phand, playerind) << " " << getBestScore(dhand, dealind) << endl;
+                        break;
+                    }
+                }
             }
-            else if (getBestScore(phand, playerind) == 21)
+            // if player stay
+            if (command == 's')
             {
                 while (getBestScore(dhand, dealind) <= 17)
                 {
                     dhand[dealind] = cards[cardind];
                     cardind ++;
                     dealind ++;
-                    if ()
+                }
+                if (getBestScore(dhand, dealind) <= 21)
+                {
+                    compare(phand,dhand,playerind,dealind);
+                    break;
+                }
+                else
+                {
+                    cout << "dealer: ";
+                    printHand(dhand, dealind);
+                    cout << "Dealer Busted" << endl;
+                    cout << "win: " << getBestScore(phand, playerind) << " " << getBestScore(dhand, dealind) << endl;
+                    break;
                 }
             }
         }
-        if (command == 's')
-        {
-            
-        }
+        cout << "Wanna play again? Y/N" << endl;
+        cin >> command;
     }
+    while(command == 'y');
     return 0;
 }
 
