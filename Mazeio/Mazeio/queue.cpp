@@ -28,7 +28,7 @@ Queue::~Queue()
 // insert a new Location at the end/back of our list   
 void Queue::add_to_back(Location loc)
 {
-    contents[tails++] = loc;
+    contents[tail++] = loc;
 }
 
 // return and "remove" the oldest Location not already extracted

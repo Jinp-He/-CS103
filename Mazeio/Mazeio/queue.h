@@ -14,7 +14,8 @@ You shouldn't change this file.
 #define QUEUE_H
 
 // e.g. position [3][5] in an array would have row 3, col 5
-struct Location {
+struct Location
+{
    int row;
    int col;
 };

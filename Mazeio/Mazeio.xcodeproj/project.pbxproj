@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		BB67FA1A1FBAA8BF00AD0CC4 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BB67FA191FBAA8BF00AD0CC4 /* main.cpp */; };
+		BB67FA3C1FBBDA4400AD0CC4 /* queue.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BB67FA271FBAB59C00AD0CC4 /* queue.cpp */; };
+		BB67FA3E1FBCF51A00AD0CC4 /* mazeio.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BB67FA231FBAB59B00AD0CC4 /* mazeio.cpp */; };
+		BB67FA3F1FBCF64B00AD0CC4 /* maze.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BB67FA251FBAB59C00AD0CC4 /* maze.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -24,7 +26,21 @@
 
 /* Begin PBXFileReference section */
 		BB67FA161FBAA8BF00AD0CC4 /* Mazeio */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Mazeio; sourceTree = BUILT_PRODUCTS_DIR; };
-		BB67FA191FBAA8BF00AD0CC4 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		BB67FA201FBAB59B00AD0CC4 /* Makefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
+		BB67FA211FBAB59B00AD0CC4 /* readme.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = readme.txt; sourceTree = "<group>"; };
+		BB67FA221FBAB59B00AD0CC4 /* queue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = queue.h; sourceTree = "<group>"; };
+		BB67FA231FBAB59B00AD0CC4 /* mazeio.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = mazeio.cpp; sourceTree = "<group>"; };
+		BB67FA241FBAB59C00AD0CC4 /* example-trace.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "example-trace.txt"; sourceTree = "<group>"; };
+		BB67FA251FBAB59C00AD0CC4 /* maze.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = maze.cpp; sourceTree = "<group>"; };
+		BB67FA261FBAB59C00AD0CC4 /* maze2.in */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = maze2.in; sourceTree = "<group>"; };
+		BB67FA271FBAB59C00AD0CC4 /* queue.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = queue.cpp; sourceTree = "<group>"; };
+		BB67FA281FBAB59C00AD0CC4 /* mazeio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mazeio.h; sourceTree = "<group>"; };
+		BB67FA291FBAB59C00AD0CC4 /* queue_test.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = queue_test.cpp; sourceTree = "<group>"; };
+		BB67FA2A1FBAB59C00AD0CC4 /* maze4.in */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = maze4.in; sourceTree = "<group>"; };
+		BB67FA2B1FBAB59C00AD0CC4 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		BB67FA2C1FBAB59C00AD0CC4 /* maze3.in */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = maze3.in; sourceTree = "<group>"; };
+		BB67FA2D1FBAB59D00AD0CC4 /* maze1.in */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = maze1.in; sourceTree = "<group>"; };
+		BB67FA331FBABF8F00AD0CC4 /* test.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = test.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,7 +73,21 @@
 		BB67FA181FBAA8BF00AD0CC4 /* Mazeio */ = {
 			isa = PBXGroup;
 			children = (
-				BB67FA191FBAA8BF00AD0CC4 /* main.cpp */,
+				BB67FA2D1FBAB59D00AD0CC4 /* maze1.in */,
+				BB67FA261FBAB59C00AD0CC4 /* maze2.in */,
+				BB67FA2C1FBAB59C00AD0CC4 /* maze3.in */,
+				BB67FA2A1FBAB59C00AD0CC4 /* maze4.in */,
+				BB67FA231FBAB59B00AD0CC4 /* mazeio.cpp */,
+				BB67FA331FBABF8F00AD0CC4 /* test.cpp */,
+				BB67FA271FBAB59C00AD0CC4 /* queue.cpp */,
+				BB67FA281FBAB59C00AD0CC4 /* mazeio.h */,
+				BB67FA291FBAB59C00AD0CC4 /* queue_test.cpp */,
+				BB67FA221FBAB59B00AD0CC4 /* queue.h */,
+				BB67FA2B1FBAB59C00AD0CC4 /* README.md */,
+				BB67FA211FBAB59B00AD0CC4 /* readme.txt */,
+				BB67FA241FBAB59C00AD0CC4 /* example-trace.txt */,
+				BB67FA201FBAB59B00AD0CC4 /* Makefile */,
+				BB67FA251FBAB59C00AD0CC4 /* maze.cpp */,
 			);
 			path = Mazeio;
 			sourceTree = "<group>";
@@ -119,7 +149,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BB67FA1A1FBAA8BF00AD0CC4 /* main.cpp in Sources */,
+				BB67FA3E1FBCF51A00AD0CC4 /* mazeio.cpp in Sources */,
+				BB67FA3C1FBBDA4400AD0CC4 /* queue.cpp in Sources */,
+				BB67FA3F1FBCF64B00AD0CC4 /* maze.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

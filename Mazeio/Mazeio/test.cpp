@@ -7,13 +7,12 @@
 //
 
 #include <stdio.h>
-#include "mazeio.h"
+#include "queue.h"
 
 int main()
 {
     int row = 3;
     int col = 4;
-    char** maze = read_maze(&row, &col);
-    print_maze(maze, row, col);
-    return 0;
+    Queue que = row*col;
+    ;
 }
